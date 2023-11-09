@@ -11,7 +11,7 @@ def rx_example (tx_port, rx_port, burst_size, bw):
     print("\nGoing to inject {0} packets on port {1} - checking RX stats on port {2}\n".format(burst_size, tx_port, rx_port))
 
     # create client
-    c = STLClient()
+    c = STLClient(server="10.10.16.241", verbose_level="debug")
     passed = True
     
     try:
@@ -118,5 +118,5 @@ def rx_iteration (c, tx_port, rx_port, total_pkts, pkt_len):
     return ret
 
 # run the tests
-rx_example(tx_port = 0, rx_port = 1, burst_size = 500, bw = 50)
+rx_example(tx_port = 0, rx_port = 1, burst_size = 50000, bw = 50)
 
