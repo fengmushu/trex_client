@@ -6,6 +6,8 @@ class STLS1(object):
 
     def create_stream(self):
         return STLHltStream(
+            vlan_id = 21,
+            vlan_id_mode = "fixed",
             frame_size=1400,
             ignore_macs=True,
             l3_protocol='ipv4',
@@ -18,17 +20,17 @@ class STLS1(object):
             udp_src_port_mode='fixed',
             udp_dst_port=1025,
             udp_dst_port_mode='fixed',
-            direction=0,
-            flow_stats_id=1,
+            direction=1,
+            flow_stats_id=2,
         )
         # return STLStream(
-        #     name="P1-UDP",
+        #     name="P2-UDP",
         #     packet=STLPktBuilder(
-        #         pkt=Ether()/IP(src="192.168.10.1", dst="192.168.10.2") /
+        #         pkt=Ether()/IP(src="192.168.10.2", dst="192.168.10.1") /
         #         UDP(dport=1025, sport=1025)/(1400*'x')
         #     ),
         #     mode=STLTXCont(),
-        #     stream_id=1
+        #     stream_id=2
         # )
 
     def get_streams(self, direction=0, **kwargs):

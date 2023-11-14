@@ -9,26 +9,26 @@ class STLS1(object):
             frame_size=1400,
             ignore_macs=True,
             l3_protocol='ipv4',
-            ip_src_addr='192.168.10.1',
+            ip_src_addr='192.168.10.3',
             ip_src_mode='fixed',
-            ip_dst_addr='192.168.10.2',
+            ip_dst_addr='192.168.10.4',
             ip_dst_mode='fixed',
             l4_protocol='udp',
             udp_src_port=1025,
             udp_src_port_mode='fixed',
             udp_dst_port=1025,
             udp_dst_port_mode='fixed',
-            direction=1,
-            flow_stats_id=2,
+            direction=0,
+            flow_stats_id=3,
         )
         # return STLStream(
-        #     name="P2-UDP",
+        #     name="P3-UDP",
         #     packet=STLPktBuilder(
-        #         pkt=Ether()/IP(src="192.168.10.2", dst="192.168.10.1") /
+        #         pkt=Ether()/IP(src="192.168.10.3", dst="192.168.10.4") /
         #         UDP(dport=1025, sport=1025)/(1400*'x')
         #     ),
         #     mode=STLTXCont(),
-        #     stream_id=2
+        #     stream_id=3,
         # )
 
     def get_streams(self, direction=0, **kwargs):
